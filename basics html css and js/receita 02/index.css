@@ -1,0 +1,22 @@
+* {
+    background-color:azure
+}
+
+.verso {
+    color:blue;
+}
+
+.mote {
+    color: darkred;
+}
+
+.poeta img{
+    width: 350px;
+    border-radius: 50px;
+}
+
+table, th, td {
+    background-color: burlywood;
+    border: 1px solid black;
+    border-collapse: collapse;
+}

@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(245, 127, 239);
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    font: 32px;
+    gap: 10px;
+}
+
+.button_container {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    width: 160px;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+table {
+    width: 80%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #646464;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #d421a4;
+    color: white;
+}
+
+td {
+    background-color: #303030;
+    color: white;
+}

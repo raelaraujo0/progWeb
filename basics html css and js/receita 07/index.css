@@ -1,15 +1,19 @@
+body {
+    background-color:#0a081e;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
+    color: white;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #0f0c34;
 }

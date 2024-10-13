@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita react 01</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+
+    <script>
+        ReactDOM.render(
+            React.createElement(
+                'table',
+                { id: 'tabela', border: '1' },
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('th', null, 'Cana'),
+                    React.createElement('th', null, 'Teor alc.'),
+                    React.createElement('th', null, 'É boa?')
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Pitu'),
+                    React.createElement('td', null, '40%'),
+                    React.createElement('td', null, 'demais')
+                ),
+                React.createElement(
+                    'tr',
+                    null,
+                    React.createElement('td', null, 'Ypioca'),
+                    React.createElement('td', null, '39%'),
+                    React.createElement('td', null, 'nao')
+                )
+            ),
+            document.getElementById("app"));
+    </script>
+</body>
+</html>

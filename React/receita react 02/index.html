@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita react 02</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="libs/aux.js"></script>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script type="text/babel">
+        const cachaças = [
+            { nome: "Pitu", marca: "pitu <3", ano: 2018 },
+            { nome: "Ypióca", marca: "Ypióca Agroindustrial", ano: 2020 },
+            { nome: "Caranguejo", marca: "nao sei", ano: 2019 },
+            { nome: "Sagatiba", marca: "Cana premiun", ano: 2021 }
+        ];
+
+        function Cabecalho() {
+            return <h1 id="cabecalho" style={{ textAlign: "center", fontFamily: "JetBrains Mono", color: "#121" }}>Tabela de canas</h1>;
+        }
+
+        function TabelaBebidas() {
+            return (
+                <div id="bebidas-div">
+                    <table id="bebidas-tabela">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cachaças.map((cachaça, index) => (
+                                <tr key={index}>
+                                    <td>{cachaça.nome}</td>
+                                    <td>{cachaça.marca}</td>
+                                    <td>{cachaça.ano}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        function App() {
+            const [mostrarTabela, setMostrarTabela] = React.useState(false);
+
+            function handleMostrarTabela() {
+                setMostrarTabela(true);
+            }
+
+            return (
+                <div>
+                    <Cabecalho />
+                    <button onClick={handleMostrarTabela}>Exibir tabela de canas</button>
+                    {mostrarTabela && <TabelaBebidas />}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+</html>

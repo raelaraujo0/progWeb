@@ -1,0 +1,45 @@
+#bebidas-tabela {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}  
+
+#bebidas-tabela thead {
+    background-color: #e653c6;
+    color: white;
+}
+
+#bebidas-tabela th, #bebidas-tabela td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+#bebidas-tabela tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#bebidas-tabela tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #e653c6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #ea42c6;
+}

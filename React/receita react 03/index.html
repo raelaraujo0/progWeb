@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receita react 03</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/aux.js"></script>
+    <script type="text/babel">
+        class TabelaCarros extends React.Component {
+            render() {
+                return (
+                    <div id="tabela">
+                        <h1>{this.props.titulo}</h1>
+                        <table id="tabela" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Escuderia</th>
+                                    <th>Carro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>RedBull</td>
+                                    <td>RB19</td>
+                                </tr>
+                                <tr>
+                                    <td>Mercedes</td>
+                                    <td>W11</td>
+                                </tr>
+                                <tr>
+                                    <td>McLaren</td>
+                                    <td>MP4/4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            }
+        }
+
+        class CountdownComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    timeRemaining: this.calculateTimeRemaining(),
+                    finished: false,
+                };
+                this.interval = null;
+            }
+
+            calculateTimeRemaining() {
+                const targetDate = new Date("2024-12-25T00:00:00"); 
+                const now = new Date();
+                const timeRemaining = targetDate - now;
+                return timeRemaining > 0 ? timeRemaining : 0;
+            }
+
+            componentDidMount() {
+                this.interval = setInterval(() => {
+                    const timeRemaining = this.calculateTimeRemaining();
+                    if (timeRemaining === 0) {
+                        this.setState({ finished: true });
+                        clearInterval(this.interval);
+                    } else {
+                        this.setState({ timeRemaining });
+                    }
+                }, 1000);
+            }
+
+            componentWillUnmount() {
+                clearInterval(this.interval);
+            }
+
+            formatTime(ms) {
+                const totalSeconds = Math.floor(ms / 1000);
+                const days = Math.floor(totalSeconds / (3600 * 24));
+                const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            render() {
+                const { timeRemaining, finished } = this.state;
+
+                return (
+                    <div id="countdown-component" style={{
+                        background: finished ? "#28a745" : "#ffff",
+                        color: "black",
+                        padding: "20px",
+                        borderRadius: "10px",
+                        textAlign: "center",
+                        margin:'30px',
+                    }}>
+                        <h2>Contagem Regressiva para o Natal!</h2>
+                        {!finished ? (
+                            <p>Tempo Restante: {this.formatTime(timeRemaining)}</p>
+                        ) : (
+                            <h3>🎉 Feliz Natal! 🎄</h3>
+                        )}
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <TabelaCarros titulo="tabela de carros" />
+                <CountdownComponent />
+            </div>,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+
+</html>

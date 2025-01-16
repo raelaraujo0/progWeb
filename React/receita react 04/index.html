@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receita react 04</title>
+    <link href="index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/aux.js"></script>
+
+    <script type="text/babel">
+        const TabelaCarros = ({ titulo, cabecalhos, conteudo }) => {
+            return (
+                <div>
+                    <h1>{titulo}</h1>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr>
+                                {cabecalhos.map((cabecalho, index) => (
+                                    <th key={index}>{cabecalho}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {conteudo.map((linha, index) => (
+                                <tr key={index}>
+                                    {linha.map((item, innerIndex) => (
+                                        <td key={innerIndex}>{item}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        const valoresCabecalhos = ["Escuderia", "Nome", "Ano"];
+        const valoresConteudo = [
+            ["RedBull", "RB19", "2023"],
+            ["Mercedes", "W11", "2020"],
+            ["Ferrari", "SF21", "2021"],
+            ["McLaren", "MCL35M", "2021"],
+            ["Alpine F1 Team", "A521", "2021"],
+            ["Aston Martin", "AMR21", "2021"],
+            ["Williams Racing", "FW44", "2021"],
+            ["Scuderia AlphaTauri", "AT02", "2021"]
+        ];
+
+        ReactDOM.render(
+            <TabelaCarros titulo="Tabela de escuderias e algns de seus projetos" cabecalhos={valoresCabecalhos} conteudo={valoresConteudo} />,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+
+</html>

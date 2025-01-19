@@ -1,3 +1,4 @@
-export function MariaPrea() {
-    return <h2>Morreu Maria Preá...</h2>;
+export function Botafogo() {
+    return <h2>BOTAFOGO BOTAFOGO CAMPEAO DESDE 1907</h2>;
   }
+  

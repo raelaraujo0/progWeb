@@ -7,7 +7,8 @@ export default function Home(){
                 <h1>
                     Viva Santana!
                 </h1>
-                <Link href="/novarota/">Rota1</Link> <br/><br/>            
+                <Link href="/movies/">Movies</Link><br /><br />
+                <Link href="/novarota/botafogo/">Rota</Link> <br/><br/>            
             </div>
         </div>       
     )
